@@ -27,25 +27,24 @@ def create_bill():
     if not data:
         return error('Invalid JSON body', 400)
 
-    ok, msg = require_fields(data, ['description', 'value', 'fixed'])
+    ok, msg = require_fields(data, ['title', 'amount', 'regular'])
     if not ok:
         return error(msg, 400)
 
-    if not isinstance(data['description'], str):
-        return error('description must be a string', 400)
-    if not isinstance(data['fixed'], bool):
-        return error('fixed must be a boolean', 400)
+    if not isinstance(data['title'], str):
+        return error('Title must be a string', 400)
+    if not isinstance(data['regular'], bool):
+        return error('Regular must be a boolean', 400)
 
     try:
-        value = float(data['value'])
-
+        amount = float(data['amount'])
     except (TypeError, ValueError):
-        return error('value must be a number', 400)
+        return error('Amount must be a number', 400)
 
     bill = Bill(
-        description=data['description'].strip(),
-        value=value,
-        fixed=data['fixed'],
+        title=data['title'].strip(),
+        amount=amount,
+        regular=data['regular'],
     )
 
     db.session.add(bill)
@@ -65,20 +64,20 @@ def update_bill(bill_id: int):
     if not data:
         return error('Invalid JSON body', 400)
 
-    if 'description' in data:
-        if not isinstance(data['description'], str):
-            return error('Description must be a string', 400)
-        bill.description = data['description'].strip()
+    if 'title' in data:
+        if not isinstance(data['title'], str):
+            return error('Title must be a string', 400)
+        bill.title = data['title'].strip()
 
-    if 'value' in data:
+    if 'amount' in data:
         try:
-            bill.value = float(data['value'])
+            bill.amount = float(data['amount'])
         except (TypeError, ValueError):
-            return error('Value must be a number', 400)
+            return error('Amount must be a number', 400)
 
-    if 'fixed' in data:
-        if not isinstance(data['fixed'], bool):
-            return error('Fixed must be a boolean', 400)
+    if 'regular' in data:
+        if not isinstance(data['regular'], bool):
+            return error('Regular must be a boolean', 400)
 
     db.session.commit()
     return jsonify(bill.to_dict())

@@ -1,2 +1,2 @@
 from .bills import Bill
-from .investments import Investment
+from .savings import Saving
