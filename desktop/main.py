@@ -1,5 +1,7 @@
+from views.menu import menu
+
 def main():
-    print('Hi from main!')
+    menu()
 
 
 if __name__ == '__main__':

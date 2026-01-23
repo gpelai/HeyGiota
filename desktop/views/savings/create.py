@@ -1,9 +1,8 @@
 import tkinter as tk
 
-def investments(parent=None):
+def create_saving(parent=None):
     root = tk.Toplevel(parent) if parent is not None else tk.Tk()
-    root.title("Investments")
-    root.geometry("500x500")
+    root.title("Savings")
     root.resizable(False, False)
 
     container = tk.Frame(root, padx=24, pady=24)
