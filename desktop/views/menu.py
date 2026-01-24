@@ -19,9 +19,8 @@ def menu():
 
     # savings
     def on_savings():
-        menu_savings()
+        menu_savings(root)
     savings_button = tk.Button(container, text="Savings", command=on_savings, width=10)
     savings_button.pack(pady=12)
 
     root.mainloop()
-

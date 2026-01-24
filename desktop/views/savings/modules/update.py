@@ -1,16 +1,19 @@
 import tkinter as tk
 
 
-def read_bill(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
-    root.title('Read Bill')
+def update_saving(parent=None):
+    root = tk.Toplevel(parent)
+    root.title('Update Saving')
     root.resizable(False, False)
 
     container = tk.Frame(root, padx=24, pady=24)
     container.pack(fill='both', expand=True)
 
     fields = [
-        ("ID", tk.StringVar()),
+        ("Id", tk.StringVar()),
+        ("Title", tk.StringVar()),
+        ("Amount", tk.StringVar()),
+        ("Local", tk.StringVar()),
     ]
 
     for index, (label_text, var) in enumerate(fields):
@@ -18,12 +21,19 @@ def read_bill(parent=None):
         entry = tk.Entry(container, textvariable=var)
         label.grid(row=index, column=0, sticky='w', pady=8)
         entry.grid(row=index, column=1, sticky='w', pady=8, padx=(12, 0))
+
+    regular_var = tk.BooleanVar()
+    label = tk.Label(container, text="regular")
+    checkbox = tk.Checkbutton(container, variable=regular_var, onvalue=True, offvalue=False)
+    label.grid(row=2, column=0, sticky='w', pady=8)
+    checkbox.grid(row=2, column=1, sticky='w', pady=8, padx=(12, 0))
     
     container.columnconfigure(1, weight=1)
 
     def on_submit():
         values = [var.get() for _, var in fields]
-        print("Bill id", values)
+        values.append(regular_var.get())
+        print("Updated Saving", values)
 
     submit_button = tk.Button(container, text='Submit', command=on_submit)
     submit_button.grid(row=3, column=0, columnspan=2, pady=16)

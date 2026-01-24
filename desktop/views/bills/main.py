@@ -1,8 +1,8 @@
 import tkinter as tk
-from .create import create_bill
-from .read_all import read_all_bills
-from .read import read_bill
-from .update import update_bill
+from .modules.create import create_bill
+from .modules.read_all import read_all_bills
+from .modules.read import read_bill
+from .modules.update import update_bill
 
 
 def menu_bills(parent=None):
