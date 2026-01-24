@@ -1,7 +1,7 @@
 import tkinter as tk
 from .modules.create import create_bill
 from .modules.read_all import read_all_bills
-from .modules.read import read_bill
+from .modules.read_one import read_bill
 from .modules.update import update_bill
 
 
@@ -21,12 +21,12 @@ def menu_bills(parent=None):
 
         def on_readAll():
             read_all_bills(root)
-        get_button = tk.Button(container, text="Read all bills", command=on_readAll, width=20)
+        get_button = tk.Button(container, text="List bills", command=on_readAll, width=20)
         get_button.pack(pady=12)
 
         def on_read():
             read_bill(root)
-        list_button = tk.Button(container, text="Read one bill", command=on_read, width=20)
+        list_button = tk.Button(container, text="Bill by id", command=on_read, width=20)
         list_button.pack(pady=12)
 
         def on_update():
