@@ -1,9 +1,9 @@
 import tkinter as tk
 
 
-def update_bill(parent=None):
+def update_saving(parent=None):
     root = tk.Toplevel(parent)
-    root.title('Update Bill')
+    root.title('Update Saving')
     root.resizable(False, False)
 
     container = tk.Frame(root, padx=24, pady=24)
@@ -13,6 +13,7 @@ def update_bill(parent=None):
         ("Id", tk.StringVar()),
         ("Title", tk.StringVar()),
         ("Amount", tk.StringVar()),
+        ("Local", tk.StringVar()),
     ]
 
     for index, (label_text, var) in enumerate(fields):
@@ -32,7 +33,7 @@ def update_bill(parent=None):
     def on_submit():
         values = [var.get() for _, var in fields]
         values.append(regular_var.get())
-        print("Updated bill", values)
+        print("Updated Saving", values)
 
     submit_button = tk.Button(container, text='Submit', command=on_submit)
     submit_button.grid(row=3, column=0, columnspan=2, pady=16)

@@ -1,8 +1,8 @@
 import tkinter as tk
 
-def read_all_bills(parent=None):
+def read_all_savings(parent=None):
     root = tk.Toplevel(parent)
-    root.title('List Bills')
+    root.title('List Savings')
     root.resizable(False, False)
 
 
