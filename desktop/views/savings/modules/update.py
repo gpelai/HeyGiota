@@ -21,21 +21,14 @@ def update_saving(parent=None):
         entry = tk.Entry(container, textvariable=var)
         label.grid(row=index, column=0, sticky='w', pady=8)
         entry.grid(row=index, column=1, sticky='w', pady=8, padx=(12, 0))
-
-    regular_var = tk.BooleanVar()
-    label = tk.Label(container, text="regular")
-    checkbox = tk.Checkbutton(container, variable=regular_var, onvalue=True, offvalue=False)
-    label.grid(row=2, column=0, sticky='w', pady=8)
-    checkbox.grid(row=2, column=1, sticky='w', pady=8, padx=(12, 0))
     
     container.columnconfigure(1, weight=1)
 
     def on_submit():
         values = [var.get() for _, var in fields]
-        values.append(regular_var.get())
         print("Updated Saving", values)
 
     submit_button = tk.Button(container, text='Submit', command=on_submit)
-    submit_button.grid(row=3, column=0, columnspan=2, pady=16)
+    submit_button.grid(row=index+1, column=0, columnspan=2, pady=16)
     
     root.mainloop()
