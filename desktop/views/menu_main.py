@@ -1,6 +1,6 @@
 import tkinter as tk
-from .bills.main import menu_bills
-from .savings.main import menu_savings
+from .bills.menu_bills import menu_bills
+from .savings.menu_savings import menu_savings
 
 def menu():
     root = tk.Tk()
