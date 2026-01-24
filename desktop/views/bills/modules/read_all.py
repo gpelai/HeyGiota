@@ -1,7 +1,7 @@
 import tkinter as tk
 
 def read_all_bills(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
+    root = tk.Toplevel(parent)
     root.title('List Bills')
     root.resizable(False, False)
 

@@ -1,17 +1,18 @@
 import tkinter as tk
 
 def create_saving(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
-    root.title("Savings")
+    is_standalone = parent is None
+    root = tk.Toplevel(parent)
+    root.title("Create Saving")
     root.resizable(False, False)
 
     container = tk.Frame(root, padx=24, pady=24)
     container.pack(fill="both", expand=True)
 
     fields = [
-        ("Description", tk.StringVar()),
-        ("Value", tk.StringVar()),
-        ("Institution", tk.StringVar()),
+        ("Title", tk.StringVar(master=root)),
+        ("Amount", tk.StringVar(master=root)),
+        ("Local", tk.StringVar(master=root)),
     ]
 
     for index, (label_text, var) in enumerate(fields):
@@ -24,8 +25,9 @@ def create_saving(parent=None):
 
     def on_submit():
         values = [var.get() for _, var in fields]
-        print("New investment:", values)
+        print("New saving:", values)
 
     submit_button = tk.Button(container, text="Submit", command=on_submit)
     submit_button.grid(row=len(fields), column=0, columnspan=2, pady=16)
-    root.mainloop()
+    if is_standalone:
+        root.mainloop()

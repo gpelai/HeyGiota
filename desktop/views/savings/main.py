@@ -1,19 +1,41 @@
 import tkinter as tk
-from .create import create_saving
+from .modules.create import create_saving
 
 
 def menu_savings(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
-    root.title('Savings')
-    root.resizable(False, False)
+    try:
+        is_standalone = parent is None
+        root = tk.Toplevel(parent)
+        root.title('Savings')
+        root.resizable(False, False)
 
-    container = tk.Frame(root, padx=24, pady=24)
-    container.pack(fill='both', expand=True)
+        container = tk.Frame(root, padx=24, pady=24)
+        container.pack(fill='both', expand=True)
 
-    def on_create():
-        create_saving(root)
+        def on_create():
+            create_saving(root)
+        create_button = tk.Button(container, text="Create", command=on_create, width=20)
+        create_button.pack(pady=12)
 
-    create_button = tk.Button(container, text="Create", command=on_create, width=20)
-    create_button.pack(pady=12)
-    
-    root.mainloop()
+        # def on_readAll():
+        #     read_all_bills(root)
+        # get_button = tk.Button(container, text="Read all bills", command=on_readAll, width=20)
+        # get_button.pack(pady=12)
+
+        # def on_read():
+        #     read_bill(root)
+        # list_button = tk.Button(container, text="Read one bill", command=on_read, width=20)
+        # list_button.pack(pady=12)
+
+        # def on_update():
+        #     update_bill(root)
+        # update_button = tk.Button(container, text="Update bill", command=on_update, width=20)
+        # update_button.pack(pady=20)
+
+
+        
+        if is_standalone:
+            root.mainloop()
+
+    except Exception as e:
+        print(f"Error - {e}")

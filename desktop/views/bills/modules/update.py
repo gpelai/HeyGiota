@@ -1,8 +1,8 @@
 import tkinter as tk
 
 
-def create_bill(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
+def update_bill(parent=None):
+    root = tk.Toplevel(parent)
     root.title('Create Bill')
     root.resizable(False, False)
 
@@ -10,6 +10,7 @@ def create_bill(parent=None):
     container.pack(fill='both', expand=True)
 
     fields = [
+        ("Id", tk.StringVar()),
         ("Title", tk.StringVar()),
         ("Amount", tk.StringVar()),
     ]

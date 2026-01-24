@@ -2,7 +2,7 @@ import tkinter as tk
 
 
 def read_bill(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
+    root = tk.Toplevel(parent)
     root.title('Read Bill')
     root.resizable(False, False)
 

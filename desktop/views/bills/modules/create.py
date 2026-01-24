@@ -1,8 +1,8 @@
 import tkinter as tk
 
 
-def update_bill(parent=None):
-    root = tk.Toplevel(parent) if parent is not None else tk.Tk()
+def create_bill(parent=None):
+    root = tk.Toplevel(parent)
     root.title('Create Bill')
     root.resizable(False, False)
 
@@ -10,7 +10,6 @@ def update_bill(parent=None):
     container.pack(fill='both', expand=True)
 
     fields = [
-        ("Id", tk.StringVar()),
         ("Title", tk.StringVar()),
         ("Amount", tk.StringVar()),
     ]
@@ -22,7 +21,7 @@ def update_bill(parent=None):
         entry.grid(row=index, column=1, sticky='w', pady=8, padx=(12, 0))
 
     regular_var = tk.BooleanVar()
-    label = tk.Label(container, text="regular")
+    label = tk.Label(container, text="Regular")
     checkbox = tk.Checkbutton(container, variable=regular_var, onvalue=True, offvalue=False)
     label.grid(row=2, column=0, sticky='w', pady=8)
     checkbox.grid(row=2, column=1, sticky='w', pady=8, padx=(12, 0))
