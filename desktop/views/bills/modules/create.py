@@ -1,4 +1,5 @@
 import tkinter as tk
+from controllers.bills.create_bill import create_bill as cb
 
 
 def create_bill(parent=None):
@@ -31,7 +32,7 @@ def create_bill(parent=None):
     def on_submit():
         values = [var.get() for _, var in fields]
         values.append(regular_var.get())
-        print("New bill", values)
+        cb(values[0], values[1], values[2])
 
     submit_button = tk.Button(container, text='Submit', command=on_submit)
     submit_button.grid(row=3, column=0, columnspan=2, pady=16)
