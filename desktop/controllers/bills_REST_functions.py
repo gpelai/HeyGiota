@@ -26,3 +26,6 @@ def create_bill(title, amount, regular):
         return
     
     _controller.create(title, amount, regular)
+
+def read_all_bills():
+    return _controller.read_all()

@@ -1,5 +1,5 @@
 import tkinter as tk
-from controllers.bills.create_bill import create_bill as cb
+from controllers.bills_REST_functions import create_bill as cb
 
 
 def create_bill(parent=None):
