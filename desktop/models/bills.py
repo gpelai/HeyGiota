@@ -2,7 +2,7 @@ import requests
 
 class Bill:
     def __init__(self, api_base_url):
-        self.url = api_base_url
+        self.url = f"{api_base_url}/bills"
 
     def create(self, title, amount, regular):
     
@@ -12,15 +12,17 @@ class Bill:
             "regular": regular,
         }
 
-        resp = requests.post(f"{self.url}/bills", json=payload, timeout=10)
+        resp = requests.post(self.url, json=payload, timeout=10)
         resp.raise_for_status()
         data = resp.json()
         return data
 
 
 
-    def list(self, id):
-        pass
+    def read_all(self):
+        resp = requests.get(self.url)
+        data = resp.json()
+        return data
 
     def read(self):
         pass
