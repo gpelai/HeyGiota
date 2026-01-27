@@ -17,8 +17,6 @@ class Bill:
         data = resp.json()
         return data
 
-
-
     def read_all(self):
         resp = requests.get(self.url)
         data = resp.json()
@@ -30,5 +28,8 @@ class Bill:
     def update(self):
         pass
 
-    def delete(self):
-        pass
+    def delete(self, id):
+        resp = requests.delete(f"{self.url}/{id}")
+        data = resp.json()
+        return data
+

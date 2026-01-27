@@ -29,3 +29,16 @@ def create_bill(title, amount, regular):
 
 def read_all_bills():
     return _controller.read_all()
+
+def delete_bill(id):
+    if not id:
+        print("ID cannot be null.")
+        return
+    
+    try:
+        id = int(id)
+    except(TypeError, ValueError):
+        print("ID must be a number.")
+        return
+
+    _controller.delete(id)
