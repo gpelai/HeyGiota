@@ -1,44 +1,47 @@
 from models.bills import Bill
 
-_controller = Bill("http://127.0.0.1:5000")
+_controller = Bill('http://127.0.0.1:5000')
+
 
 def create_bill(title, amount, regular):
     if not title:
-        print("Title cannot be null.")
+        print('Title cannot be null.')
         return
     if not amount:
-        print("Amount cannot be null.")
+        print('Amount cannot be null.')
         return
     if not regular:
-        print("Regular cannot be null.")
+        print('Regular cannot be null.')
         return
 
     if not isinstance(title, str):
-        print("Title must be a String.")
+        print('Title must be a String.')
         return
     if not isinstance(regular, bool):
-        print("Regular must be Boolean.")
+        print('Regular must be Boolean.')
         return
     try:
         amount = float(amount)
-    except(TypeError, ValueError):
-        print("Amount must be a Number.")
+    except (TypeError, ValueError):
+        print('Amount must be a Number.')
         return
-    
+
     _controller.create(title, amount, regular)
+
 
 def read_all_bills():
     return _controller.read_all()
 
+
 def delete_bill(id):
     if not id:
-        print("ID cannot be null.")
+        print('ID cannot be null.')
         return
-    
+
     try:
         id = int(id)
-    except(TypeError, ValueError):
-        print("ID must be a number.")
+    except (TypeError, ValueError):
+        print('ID must be a number.')
         return
 
     _controller.delete(id)

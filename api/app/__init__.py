@@ -1,9 +1,8 @@
-from dotenv import load_dotenv
-from flask import Flask
-
 from app.config import Config
 from app.extensions import db, migrate
 from app.routes import register_blueprint
+from dotenv import load_dotenv
+from flask import Flask
 
 
 def create_app():

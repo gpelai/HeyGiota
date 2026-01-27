@@ -1,5 +1,6 @@
 from views.menu_main import menu
 
+
 def main():
     menu()
 

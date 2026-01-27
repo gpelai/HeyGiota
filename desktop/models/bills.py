@@ -1,15 +1,16 @@
 import requests
 
+
 class Bill:
     def __init__(self, api_base_url):
-        self.url = f"{api_base_url}/bills"
+        self.url = f'{api_base_url}/bills'
 
     def create(self, title, amount, regular):
-    
+
         payload = {
-            "title": title,
-            "amount": amount,
-            "regular": regular,
+            'title': title,
+            'amount': amount,
+            'regular': regular,
         }
 
         resp = requests.post(self.url, json=payload, timeout=10)
@@ -29,7 +30,6 @@ class Bill:
         pass
 
     def delete(self, id):
-        resp = requests.delete(f"{self.url}/{id}")
+        resp = requests.delete(f'{self.url}/{id}')
         data = resp.json()
         return data
-

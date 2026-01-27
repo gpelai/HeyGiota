@@ -1,8 +1,7 @@
-from flask import Blueprint, jsonify, request
-
 from app.extensions import db
 from app.models import Bill
 from app.utils import error, require_fields
+from flask import Blueprint, jsonify, request
 
 bp = Blueprint('bills', __name__, url_prefix='/bills')
 
