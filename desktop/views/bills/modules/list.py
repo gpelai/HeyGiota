@@ -6,7 +6,7 @@ from controllers.bills_REST_functions import read_all_bills as r_ab
 def read_all_bills(parent=None):
     root = tk.Toplevel(parent)
     root.title('List Bills')
-    root.resizable(False, False)
+    root.resizable(True, True)
 
     container = tk.Frame(root, padx=24, pady=24)
     container.pack(fill='both', expand=True)

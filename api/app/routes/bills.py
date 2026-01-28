@@ -33,21 +33,26 @@ def create_bill():
 
     if not isinstance(data['title'], str):
         return error('Title must be a string', 400)
-    if not isinstance(data['regular'], bool):
-        return error('Regular must be a boolean', 400)
-    if not isinstance(data['date'], str):
-        return error('Date must be a string')
-
+    
     try:
         amount = float(data['amount'])
     except (TypeError, ValueError):
         return error('Amount must be a number', 400)
+    
+    if not isinstance(data['date'], str):
+        return error('Date must be a string')
+    
+    if not isinstance(data['regular'], bool):
+        return error('Regular must be a boolean', 400)
+
+
+
 
     bill = Bill(
         title= data['title'].strip(),
         amount= amount,
-        regular= data['regular'],
         date= data['date'],
+        regular= data['regular'],
     )
 
     db.session.add(bill)

@@ -2,7 +2,7 @@ import tkinter as tk
 
 from .modules.create import create_bill
 from .modules.delete import delete_bill
-from .modules.read_all import read_all_bills
+from .modules.list import read_all_bills
 from .modules.read_one import read_bill
 from .modules.update import update_bill
 

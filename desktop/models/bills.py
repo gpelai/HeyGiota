@@ -5,11 +5,12 @@ class Bill:
     def __init__(self, api_base_url):
         self.url = f'{api_base_url}/bills'
 
-    def create(self, title, amount, regular):
+    def create(self, title, amount, date, regular):
 
         payload = {
             'title': title,
             'amount': amount,
+            'date': date,
             'regular': regular,
         }
 
