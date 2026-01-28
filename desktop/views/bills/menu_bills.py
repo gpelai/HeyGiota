@@ -28,7 +28,7 @@ def menu_bills(parent=None):
             read_all_bills(root)
 
         get_button = tk.Button(
-            container, text='List bills', command=on_readAll, width=20
+            container, text='List', command=on_readAll, width=20
         )
         get_button.pack(pady=12)
 
@@ -36,7 +36,7 @@ def menu_bills(parent=None):
             read_bill(root)
 
         list_button = tk.Button(
-            container, text='Bill by id', command=on_read, width=20
+            container, text='Search', command=on_read, width=20
         )
         list_button.pack(pady=12)
 
@@ -44,7 +44,7 @@ def menu_bills(parent=None):
             update_bill(root)
 
         update_button = tk.Button(
-            container, text='Update bill', command=on_update, width=20
+            container, text='Update', command=on_update, width=20
         )
         update_button.pack(pady=12)
 
@@ -52,7 +52,7 @@ def menu_bills(parent=None):
             delete_bill(root)
 
         delete_button = tk.Button(
-            container, text='Delete bill', command=on_delete, width=20
+            container, text='Delete', command=on_delete, width=20
         )
         delete_button.pack(pady=12)
 
