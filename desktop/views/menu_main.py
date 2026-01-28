@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from .bills.menu_bills import menu_bills
+from .menu_bills import menu_bills
 
 
 def menu():

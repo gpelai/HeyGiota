@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from controllers.bills_REST_functions import create_bill as cb
+from services.rest.bills_REST_functions import create_bill as cb
 
 
 def create_bill(parent=None):

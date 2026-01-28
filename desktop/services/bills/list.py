@@ -1,9 +1,9 @@
 import tkinter as tk
 
-from controllers.bills_REST_functions import read_all_bills as r_ab
+from services.rest.bills_REST_functions import read_all_bills as r_ab
 
 
-def read_all_bills(parent=None):
+def list_bills(parent=None):
     root = tk.Toplevel(parent)
     root.title('List Bills')
     root.resizable(True, True)

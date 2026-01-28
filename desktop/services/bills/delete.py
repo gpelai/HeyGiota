@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from controllers.bills_REST_functions import delete_bill as del_b
+from services.rest.bills_REST_functions import delete_bill as del_b
 
 
 def delete_bill(parent=None):
