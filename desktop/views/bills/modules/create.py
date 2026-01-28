@@ -28,8 +28,8 @@ def create_bill(parent=None):
     checkbox = tk.Checkbutton(
         container, variable=regular_var, onvalue=True, offvalue=False
     )
-    label.grid(row=index+1, column=0, sticky='w', pady=8)
-    checkbox.grid(row=index+1, column=1, sticky='w', pady=8, padx=(12, 0))
+    label.grid(row=index + 1, column=0, sticky='w', pady=8)
+    checkbox.grid(row=index + 1, column=1, sticky='w', pady=8, padx=(12, 0))
 
     container.columnconfigure(1, weight=1)
 
