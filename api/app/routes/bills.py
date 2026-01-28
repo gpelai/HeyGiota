@@ -2,6 +2,7 @@ from app.extensions import db
 from app.models import Bill
 from app.utils import error, require_fields
 from flask import Blueprint, jsonify, request
+import datetime
 
 bp = Blueprint('bills', __name__, url_prefix='/bills')
 
@@ -26,7 +27,7 @@ def create_bill():
     if not data:
         return error('Invalid JSON body', 400)
 
-    ok, msg = require_fields(data, ['title', 'amount', 'regular'])
+    ok, msg = require_fields(data, ['title', 'amount', 'regular', 'date'])
     if not ok:
         return error(msg, 400)
 
@@ -34,6 +35,8 @@ def create_bill():
         return error('Title must be a string', 400)
     if not isinstance(data['regular'], bool):
         return error('Regular must be a boolean', 400)
+    if not isinstance(data['date'], str):
+        return error('Date must be a string')
 
     try:
         amount = float(data['amount'])
@@ -41,9 +44,10 @@ def create_bill():
         return error('Amount must be a number', 400)
 
     bill = Bill(
-        title=data['title'].strip(),
-        amount=amount,
-        regular=data['regular'],
+        title= data['title'].strip(),
+        amount= amount,
+        regular= data['regular'],
+        date= data['date'],
     )
 
     db.session.add(bill)
