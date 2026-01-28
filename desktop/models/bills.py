@@ -15,6 +15,7 @@ class Bill:
         }
 
         resp = requests.post(self.url, json=payload, timeout=10)
+        print("resp", resp)
         resp.raise_for_status()
         data = resp.json()
         return data
@@ -22,6 +23,7 @@ class Bill:
     def read_all(self):
         resp = requests.get(self.url)
         data = resp.json()
+        print("resp", resp)
         return data
 
     def read(self):
@@ -32,5 +34,5 @@ class Bill:
 
     def delete(self, id):
         resp = requests.delete(f'{self.url}/{id}')
-        data = resp.json()
-        return data
+        print("resp", resp)
+        return
