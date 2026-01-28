@@ -36,7 +36,6 @@ def create_bill(parent=None):
     def on_submit():
         values = [var.get() for _, var in fields]
         values.append(regular_var.get())
-        print(values)
         title = values[0]
         amount = values[1]
         date = values[2]
